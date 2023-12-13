@@ -3,10 +3,12 @@ FROM ubuntu:20.04
 
 # 预定义环境变量
 ENV DEBIAN_FRONTEND noninteractive
+ENV SHELL=bin/bash
 
 # 更新包列表并安装软件包
 RUN apt-get update && \
     apt-get install -y \
+    bash \
     git \
     build-essential \
     gdb-multiarch \
@@ -18,6 +20,11 @@ RUN apt-get update && \
 # RUN apt-get autoremove -y && \
 #     apt-get clean && \
 #     rm -rf /var/lib/apt/lists/*
+
+# 将默认shell设为bash
+RUN ln -sf /bin/bash /bin/sh
+
+CMD ["bash"]
 
 # 设置工作目录
 WORKDIR /workspace
