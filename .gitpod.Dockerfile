@@ -1,30 +1,19 @@
-# 使用 Ubuntu 20.04 镜像
+# Use Ubuntu 20.04 image
 FROM ubuntu:20.04
 
-# 预定义环境变量
-ENV DEBIAN_FRONTEND noninteractive
-ENV SHELL=bin/bash
-
-# 更新包列表并安装软件包
-RUN apt-get update && \
-    apt-get install -y \
-    bash \
+# Install
+RUN apt-get update && apt-get install -yq \
     git \
+    git-lfs \
+    sudo \
     build-essential \
     gdb-multiarch \
     qemu-system-misc \
     gcc-riscv64-linux-gnu \
-    binutils-riscv64-linux-gnu
+    binutils-riscv64-linux-gnu \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
-# 清理不需要的软件包和缓存
-# RUN apt-get autoremove -y && \
-#     apt-get clean && \
-#     rm -rf /var/lib/apt/lists/*
+# Create the gitpod user. UID must be 33333.
+RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
 
-# 将默认shell设为bash
-RUN ln -sf /bin/bash /bin/sh
-
-CMD ["bash"]
-
-# 设置工作目录
-WORKDIR /workspace
+USER gitpod
