@@ -26,8 +26,7 @@ RUN apt-get update && apt-get install -yq \
     libglib2.0-dev \
     pkg-config \
     python \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* \
-    && ln -s /usr/bin/python3 /usr/bin/python
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
 # Install qemu
 RUN wget https://download.qemu.org/qemu-5.1.0.tar.xz 
