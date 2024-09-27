@@ -1,5 +1,5 @@
 # MIT6.S081-2021FALL
-labs for MIT6.S081-2021FALL with out-of-box env
+Labs for MIT6.S081-2020FALL with out-of-box env
 
 This repo is mainly for the environment. 
 
@@ -11,6 +11,3 @@ Or simply click the button below:
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/wong-1994/MIT6.S081-2021FALL)
 
 Now you can jump into the lab content and finsh those puzzles!
-
-FYI: My lab answer exists as a submodule, and you should change the link.
-DO NOT PEEK!!
